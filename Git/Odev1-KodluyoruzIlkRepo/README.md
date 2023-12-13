@@ -1,6 +1,6 @@
 # Kodluyoruz İlk Repo
 Bu repo "patika.dev"in eğitiminde oluşturduğum ilk repo. İçerisinde bir adet README.md dosyası, bir adet index.html bulunuyor ve aşağıdaki görsel bulunuyor.
-![First repo is created!](//Git/Odev1-KodluyoruzIlkRepo/CreateRepo.jpg "Create a repo")
+![First repo is created!](/Git/Odev1-KodluyoruzIlkRepo/CreateRepo.jpg "Create a repo")
 ## Yükleme
 Öncelikle prejeyi bilgisayarımıza kopyalıyoruz (cloneluyoruz). Önemli nokta kendi repomuzun bağlantısını koymamız.
 ## Kullanım
