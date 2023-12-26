@@ -1,7 +1,7 @@
 # instagrambootstrapclone
 Simple HTML Instagram clone made with Bootstrap.
 
-# Patika.den'in Bootstrap Derslerinin İkinci Ödevi
+# Patika.dev'in Bootstrap Derslerinin İkinci Ödevi
 
 ## Amaç
 Instagram'ın ana sayfasının bir benzerini, klonunu bootstrap kullanarak yapmayı amaçladım.

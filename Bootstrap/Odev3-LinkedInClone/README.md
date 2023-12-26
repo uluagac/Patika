@@ -1,7 +1,7 @@
 # LinkedInClone
 Simple HTML LinkedIn clone made with Bootstrap.
 
-# Patika.den'in Bootstrap Derslerinin Üçüncü Ödevi
+# Patika.dev'in Bootstrap Derslerinin Üçüncü Ödevi
 
 ## Amaç
 LinkedIn'in ana sayfasının bir benzerini, klonunu bootstrap kullanarak yapmayı amaçladım. 
