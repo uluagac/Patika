@@ -1,54 +1,98 @@
-// HTML etiketleri
-let toDo = document.querySelector("#task");
-let toDoList = document.querySelector("#list");
-let toDoListElements = document.querySelectorAll("#list > li")
+// HTML Etiketleri
+const newToDo = document.querySelector("#task");
+const toDoList = document.querySelector("#list");
+const toDoListElement = toDoList.querySelectorAll("li");
+const toasts = document.querySelectorAll("#liveToast")
 
-// Yeni Öğe Yaratma
- function createLi() {
-    let newList = document.createElement("li");             //yeni li ögesi yaratma
-    newList.innerHTML = `${toDo.value}`;                    //yeni li ögesinin içeriğini ekleme
-    toDoList.appendChild(newList);                          //yeni li ögesini listeye ekleme
-    newList.addEventListener("click", markList);            //yeni li ögesine işaretleme etkinliği ekleme
-    let deleteButton = createDeleteButton();                //yeni li ögesi için silme butonu çağırma
-    newList.appendChild(deleteButton);                      //yeni li ögesine silme butonu ekleme
- }
+let todos = [];
 
-// Listeye öge eklemek için fonksiyon
-function addElement() {
-    if (toDo.value.trim() === "") {                             //boş eleman ve boşluk girilmesini engelleme
-        toDo.placeholder = "Lütfen bir görev giriniz!";         //placeholder uyarısı
-        toDo.value = "";                                        //input value sıfırlama
-        $(".error").toast("show");                              //toast uyarısı
+// HTML Listesi Temizleme
+function clearAllToDo() {
+    toDoListElement.forEach(item => {
+        item.remove()
+    })
+}
+
+// Eklenecek Etkinlikler
+document.addEventListener("DOMContentLoaded", clearAllToDo);
+document.addEventListener("DOMContentLoaded", pageLoaded);
+toDoList.addEventListener("click", removeToDo)
+toDoList.addEventListener("click", completedToDo)
+
+// Çalıştırılacak Fonksiyonlar
+function pageLoaded() {
+    checkToDoFromStorage();
+    todos.forEach(function(todo) {
+        newLi(todo);
+    })
+}
+
+// Liste Elemanı Yaratma
+function newLi(inputText) {
+    let li = document.createElement("li");
+    li.textContent = inputText;
+    li.className = "";
+    let trashIcon = document.createElement("i");
+    trashIcon.className = "bi bi-trash float-right";
+    li.appendChild(trashIcon);
+    toDoList.appendChild(li);
+}
+
+// Görev Ekleme
+function newElement(e) { //arayüze ekleme
+    let inputText = newToDo.value.trim();
+    if (inputText == null || inputText == "") {
+        $(toasts[1]).toast('show');
+        newToDo.value = "";
     } else {
-        createLi()
-        toDo.placeholder = "Başka bir şey yapacak mısın?"       //placeholder uyarlama
-        toDo.value = "";                                        //input value sıfırlama
-        $(".success").toast("show");                            //toast uyarısı
+        newLi(inputText);
+        addToDoToStorage(inputText) //depolamaya ekleme
+        $(toasts[0]).toast('show');
+        newToDo.value = "";
+    }
+    e.preventDefault();
+}
+
+// Yerel Depolamaya Ekleme
+function addToDoToStorage(inputText) {
+    checkToDoFromStorage();
+    todos.push(inputText);
+    localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+// Görev Silme
+function removeToDo(e) {
+    if(e.target.classList.contains("bi-trash")) {
+        let todo = e.target.parentElement;
+        todo.remove();
+        removeToDoFromStorage(todo.textContent);
     }
 }
 
-// Liste  ögelerini işaretlemek için fonksiyon
-function markList() {
-    this.classList.toggle("checked");   //classList.toggle ile checked sınıfını ekleme
+// Yerel Depolamadan Silme
+function removeToDoFromStorage(todoText) {
+    checkToDoFromStorage();
+    todos.forEach(function(todo, index) {
+        if(todoText  === todo) {
+            todos.splice(index, 1);
+            localStorage.setItem("todos", JSON.stringify(todos));
+        }
+    })
 }
 
-// Silme butonu ve fonksiyonu oluşturma
-function createDeleteButton() {
-    let deleteButton = document.createElement("i");         //buton olacak i ögesini yaratma
-    deleteButton.classList.add("bi", "bi-x-octagon");       //i ögesine bootstrap icon class'ı ekleme
-    deleteButton.style.float = "right";                     //silme butonunu sağa alma
-    deleteButton.style.color = "red";                       //silme butonunun kırmızı yapma
-    deleteButton.addEventListener("click", deleteItem);     //silme butonuna etkinlik ekleme
-    return deleteButton
-}
-function deleteItem() {         //silme fonksiyonu
-    this.parentNode.remove();   //parentNode ile li ögesini silme
+// İşaretleme
+function completedToDo(e) {
+    if (e.target.tagName === 'LI') {
+        e.target.classList.toggle("checked");
+        
+    }
 }
 
-// Liste ögelerine silme butonu ve işaretleme etkinliği ekleme
-toDoListElements.forEach(function(liElements) {
-    let deleteButton = createDeleteButton();         //eklenecek silme butonu çağırma
-    liElements.appendChild(deleteButton);            //silme butonu ekleme
-    liElements.addEventListener("click", markList);  //işaretleme etkinliği ekleme
+// Yerel Depolama Kontrolü
+function checkToDoFromStorage() {
+    if (localStorage.getItem("todos") == null) {
+        todos = [];
+    } else {
+        todos = JSON.parse(localStorage.getItem("todos"));
+    }
 }
-)
