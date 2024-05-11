@@ -26,4 +26,4 @@
     LIMIT 1;
 
 ## Sonuç
-![SQL Ödev7](/SQL/Odev7/Odev7.jpg "SQL Ödev 7")
+![SQL Ödev 7](/SQL/Odev7/Odev7.jpg "SQL Ödev 7")

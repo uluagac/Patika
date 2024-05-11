@@ -104,4 +104,4 @@
     WHERE name = 'Raleigh';
 
 ## Sonuç
-![SQL Ödev8](/SQL/Odev8/Odev8.jpg "SQL Ödev 8")
+![SQL Ödev 8](/SQL/Odev8/Odev8.jpg "SQL Ödev 8")

@@ -22,4 +22,4 @@
     WHERE length > 150;
 
 ## Sonuç
-![SQL Ödev6](/SQL/Odev6/Odev6.jpg "SQL Ödev 6")
+![SQL Ödev 6](/SQL/Odev6/Odev6.jpg "SQL Ödev 6")
