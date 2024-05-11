@@ -1,7 +1,7 @@
 # Patika.dev'in SQL Derslerinin Dokuzuncu Ödevi (INNER JOIN)
 
 ## Ders
-Ödev ve talimatlar: [patika.dev](https://academy.patika.dev/tr/courses/sql/Odev7)
+Ödev ve talimatlar: [patika.dev](https://academy.patika.dev/tr/courses/sql/Odev9)
 
 ## Senaryolar
 1.  city tablosu ile country tablosunda bulunan şehir (city) ve ülke (country) isimlerini birlikte görebileceğimiz INNER JOIN sorgusunu yazınız.
