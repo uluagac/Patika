@@ -1,4 +1,4 @@
-# Patika.dev'in SQL Derslerinin Dokuzuncu Ödevi (INNER JOIN)
+# Patika.dev'in SQL Derslerinin Onuncu Ödevi (LEFT, RIGHT, FULL JOIN)
 
 ## Ders
 Ödev ve talimatlar: [patika.dev](https://academy.patika.dev/tr/courses/sql/Odev10)
