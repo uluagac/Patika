@@ -1,0 +1,22 @@
+{
+  "name": "cleanblog",
+  "version": "1.0.0",
+  "description": "patika project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "clean",
+    "blog"
+  ],
+  "author": "Recep Ersin",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.4",
+    "prettier": "^3.3.2"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
