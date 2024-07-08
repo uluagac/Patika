@@ -14,10 +14,10 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 app.get("/about", (req, res) => {
-  res.render("about");
+  res.render('about');
 });
-app.get("/add", (req, res) => {
-  res.render("add");
+app.get("/add_post", (req, res) => {
+  res.render('add_post');
 });
 
 const port = 3000;
