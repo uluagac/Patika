@@ -128,7 +128,6 @@ dist
 # Temporary folders
 tmp/
 temp/
-public/uploads
 
 # yarn v2
 .yarn/cache
